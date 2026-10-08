@@ -301,7 +301,127 @@ tr:last-child td {
   gap: 8px 16px;
 }
 
+
+/* Product page (index.html) */
+.brand-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  align-items: center;
+  gap: 40px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero h1 {
+  font-size: clamp(32px, 6vw, 46px);
+  line-height: 1.35;
+}
+
+.hero-screen {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(35, 61, 54, 0.14);
+}
+
+.platforms {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps li,
+.feature {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.steps li + li {
+  margin-top: 0;
+}
+
+.steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+
+.steps h3,
+.feature h3,
+.link-item h3 {
+  margin: 0 0 6px;
+  font-size: 17px;
+}
+
+.steps p,
+.feature p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.screens {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.screens img {
+  width: min(44%, 240px);
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(35, 61, 54, 0.14);
+}
+
 @media (max-width: 720px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .hero-screen {
+    width: min(70%, 260px);
+    justify-self: center;
+  }
+
+  .steps,
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
   .header-inner {
     align-items: flex-start;
     flex-direction: column;
